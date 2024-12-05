@@ -23,7 +23,7 @@ generate "provider" {
 }
 
 locals {
-  environment = basename(path_relative_to_include())  # Get the last directory name, i.e., the environment folder
+  environment = basename(dirname(path_relative_to_include()))
 }
 
 generate "backend" {
@@ -32,7 +32,7 @@ generate "backend" {
   contents  = <<EOF
   terraform {
     backend "local" {
-     path = "../../../../../../../../state_files/${local.environment}/terraform.tfstate"
+     path = "../../../../../../../../../state_files/${local.environment}/terraform.tfstate"
     }
   }
   EOF

@@ -22,6 +22,22 @@ generate "provider" {
   EOF
 }
 
+locals {
+  environment = basename(path_relative_to_include())  # Get the last directory name, i.e., the environment folder
+}
+
+generate "backend" {
+  path      = "backend.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = <<EOF
+  terraform {
+    backend "local" {
+     path = "../../../../../../../../state_files/${local.environment}/terraform.tfstate"
+    }
+  }
+  EOF
+}
+
 terraform_version_constraint = "~> 1.5"
 
 terraform {

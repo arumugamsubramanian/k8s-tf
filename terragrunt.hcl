@@ -45,4 +45,30 @@ terraform {
     commands = ["apply", "plan", "import", "push", "refresh"]
     execute = ["sh", "-c", "pwd"]
   }
+
+  # extra_arguments "retry_lock" {
+  #   commands = [
+  #     "init",
+  #     "apply",
+  #     "refresh",
+  #     "import",
+  #     "plan",
+  #     "taint",
+  #     "untaint"
+  #   ]
+  #
+  #   arguments = [
+  #     "-lock-timeout=20m"
+  #   ]
+  # }
+  #
+  # extra_arguments "init_arg" {
+  #   commands = [
+  #     "init"
+  #   ]
+  #
+  #   arguments = [
+  #     "-plugin-dir=/my/tofu/plugin/dir",
+  #   ]
+  # }
 }

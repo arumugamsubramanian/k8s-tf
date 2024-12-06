@@ -23,3 +23,8 @@ terragrunt run-all apply
 ```shell
 terragrunt run-all apply --terragrunt-include-dir environments/${env}/${MODULE_NAME}
 ```
+
+```shell
+cd environments/${env}/${MODULE_NAME}
+terragrunt apply
+```

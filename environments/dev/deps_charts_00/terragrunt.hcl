@@ -20,4 +20,8 @@ inputs = {
   vault = { enabled = true, values = { version = "0.22.1" } }
 
   sealed_secrets = { enabled = true, values = {} }
+
+  root_ca_tls_config = { enabled = true, values = {} }
+
+  cert_manager_controller = { enabled = true, values = {} }
 }

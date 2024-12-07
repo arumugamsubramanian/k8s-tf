@@ -17,6 +17,10 @@ generate "provider" {
         source = "hashicorp/random"
         version = "3.6.2"
       }
+      kustomization = {
+        source  = "kbst/kustomization"
+        version = "0.9.0"
+      }
     }
   }
   EOF
@@ -44,6 +48,11 @@ terraform {
   before_hook "info" {
     commands = ["apply", "plan", "import", "push", "refresh"]
     execute = ["sh", "-c", "pwd"]
+  }
+
+  before_hook "debug_path" {
+    commands = ["init"]
+    execute = ["sh", "-c", "pwd; ls -l"]
   }
 
   # extra_arguments "retry_lock" {

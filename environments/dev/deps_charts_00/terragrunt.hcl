@@ -24,4 +24,6 @@ inputs = {
   root_ca_tls_config = { enabled = true, values = {} }
 
   cert_manager_controller = { enabled = true, values = {} }
+
+  kind_ingress_nginx = { enabled = true, values = {} }
 }
